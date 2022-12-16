@@ -9,6 +9,13 @@ import sentencepiece as spm
 import urllib.request
 import os
 
+try:
+   import en_core_web_lg
+   nlp = en_core_web_lg.load()
+except OSError:
+    import spacy.cli
+    spacy.cli.download("en_core_web_lg")
+
 
 if not os.path.isfile('ct2_model/model.bin'):
     urllib.request.urlretrieve("https://server1.nlp.insight-centre.org/pp/model.bin", "ct2_model/model.bin")
@@ -19,7 +26,6 @@ nltk.download('averaged_perceptron_tagger', quiet=True)
 nltk.download('maxent_ne_chunker', quiet=True)
 nltk.download('words', quiet=True)
 
-nlp = spacy.load("en_core_web_lg")
 tagger = SequenceTagger.load("flair/ner-english")
 
 dicti = {}
