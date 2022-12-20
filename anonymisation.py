@@ -14,6 +14,7 @@ try:
 except ModuleNotFoundError:
     import spacy.cli
     spacy.cli.download("en_core_web_lg")
+    import en_core_web_lg
 
 nlp = en_core_web_lg.load()
 
