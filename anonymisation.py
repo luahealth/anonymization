@@ -11,11 +11,11 @@ import os
 
 try:
    import en_core_web_lg
-   nlp = en_core_web_lg.load()
-except OSError:
+except ModuleNotFoundError:
     import spacy.cli
     spacy.cli.download("en_core_web_lg")
 
+nlp = en_core_web_lg.load()
 
 if not os.path.isfile('ct2_model/model.bin'):
     urllib.request.urlretrieve("https://server1.nlp.insight-centre.org/pp/model.bin", "ct2_model/model.bin")
