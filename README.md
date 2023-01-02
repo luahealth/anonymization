@@ -1,6 +1,8 @@
 # Anonymisation
 
-This is a python based service for redacting sensitive information from text.   
+This is a python based service for redacting sensitive information from text. 
+
+It also includes a translation service, automatically translating Spanish and Tagalog to English. 
 
 ## Setup / Install 
 ### Prerequisites  
