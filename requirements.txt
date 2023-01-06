@@ -8,4 +8,3 @@ pandas==1.5.2
 loguru==0.6.0
 libratom==0.7.1
 langdetect==1.0.9
-tqdm==4.64.1
