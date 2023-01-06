@@ -119,13 +119,8 @@ def main_ano(string: str, thesaurus: str):
 
     lowerstring = ""
 
-    # print("1:",string)
-    string = re.sub(r'http\S+', '', string)
-    # print("2:",string)
-    # # x = lang_id(string)
-    # # print(x)
-    #
-    # exit()
+
+    string = re.sub(r'http\S+|www\S+|sftp\S+', '', string)
 
     if re.search('[a-zA-Z]', string):
         output_text = string
