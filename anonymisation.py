@@ -120,7 +120,7 @@ def main_ano(string: str, thesaurus: str):
     lowerstring = ""
 
 
-    string = re.sub(r'http\S+|www\S+|sftp\S+', '', string)
+    string = re.sub(r'http\S+|www\S+|[s]ftp\S+', '', string)
 
     if re.search('[a-zA-Z]', string):
         output_text = string
