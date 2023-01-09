@@ -7,15 +7,17 @@ It also includes a translation service, automatically translating Spanish and Ta
 ## Setup / Install 
 ### Prerequisites  
 * Python 3.8 or 3.9  
+* Git 
 
 ### Installation  
 1. [Optional] Setup and activate a virtual environment 
-2. Install the required packages by running `pip install -r requirements.txt`
+2. Download this code to your machine using `git clone https://github.com/passive-prediction/anonymization`
+3. Install the required packages by running `pip install -r requirements.txt`
 
 
 ## Usage 
 
-`test_ano.py` gives an example usage. 
+`test_ano.py` gives an example of possible usage. 
 
 `thesaurus.txt` is a custom dictionary of words you can enter that the service will remove. For example, if you have a client called abc_enterprises and you notice the service does not remove it, you can add the name to this text file to ensure it's removed. 
 
@@ -25,6 +27,14 @@ A possible workflow would be;
  1. Create a python file and import `from anonymisation import main_ano`
  2. Add your own code to read your data and iterate over it 
  3. For each piece of text (this could be a message, an email etc) run `main_ano(string,thesaurus_path)` and save the output
+ 
+## Workfile with .pst files 
+1. Dump your .pst files into the folder `pst_files`
+2. Convert all these .pst files to a single .csv file using the command `python pstreader/convert_pst_to_csv.py` 
+3. This will create a single .csv file
+4. Now redacting this text using the command `python csv_io.py <<Name of the file you just created>>` 
+5. This will create a second file with the anonymised text. If you notice mistakes, you can update the `thesaurus.txt` and rerun the last step. 
+
  
  
 ## License 
