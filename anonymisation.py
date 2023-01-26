@@ -120,7 +120,8 @@ def main_ano(string: str, thesaurus: str):
     lowerstring = ""
 
 
-    string = re.sub(r'\S*@\S*\s?|http\S+|www\S+|[s]ftp\S+', '', string)
+    string = re.sub(r'\S*@\S*\s?|http\S+|www\S+|[s]ftp\S+|\(|\)|\"\'', '', string)
+
 
     if re.search('[a-zA-Z]', string):
         output_text = string
@@ -137,7 +138,6 @@ def main_ano(string: str, thesaurus: str):
         for key in dicti:
             lowerstring = re.sub(r"\b%s\b" % key, dicti[key], lowerstring)
 
-        pattern = r'[0-9]'
-        lowerstring = re.sub(pattern, "X", lowerstring)
+        lowerstring = re.sub(r'[0-9]', "X", lowerstring)
 
     return lowerstring
