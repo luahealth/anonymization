@@ -112,7 +112,6 @@ def main_ano(string: str, thesaurus: str):
     read_company_thesaurus(thesaurus)
 
 
-    # string = re.sub(r'htt\S+', '', string)
     m = re.search(r'\w+$', string)
     if m is not None:
         string = string + "."
@@ -125,7 +124,9 @@ def main_ano(string: str, thesaurus: str):
 
     if re.search('[a-zA-Z]', string):
         output_text = string
-        if (not (lang_id(string)) and (lang_id(string) != "en")): output_text = (do_translation(string))
+
+        if ((lang_id(string) != "en")):
+            output_text = do_translation(string)
 
         string_tc = truecase.get_true_case(output_text)
 
